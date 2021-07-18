@@ -1,2 +1,1 @@
-test
-tets
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'Tehno@q123Db';
