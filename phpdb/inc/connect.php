@@ -1,7 +1,7 @@
 <?php
 
 echo "Hello world!!!<br>";
-try{
+try {
   $db = new PDO("mysql:host=localhost;dbname=database;port=3306","admin","Tehno@q123Db");
   $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e){
@@ -10,9 +10,14 @@ try{
   exit;
 }
 
+try {
+  $result = $db->query("SELECT Title, Category FROM Media");
+  // echo "Result is ok!";
+} catch(Exception $e) {
+  echo "Query is not taked!";
+  exit;
+}
 
 
-
-echo "Hello world!!!<br>";
-
+var_dump($result->fetchAll(PDO::FETCH_ASSOC));
 ?>
