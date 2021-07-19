@@ -11,7 +11,7 @@ try {
 }
 
 try {
-  $result = $db->query("SELECT Title, Category FROM Media");
+  $results = $db->query("SELECT Title, Category FROM Media");
   // echo "Result is ok!";
 } catch(Exception $e) {
   echo "Query is not taked!";
@@ -19,5 +19,7 @@ try {
 }
 
 
-var_dump($result->fetchAll(PDO::FETCH_ASSOC));
+
+//var_dump($results->fetchAll(PDO::FETCH_ASSOC));
+var_dump($results);
 ?>
