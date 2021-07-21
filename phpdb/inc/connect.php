@@ -6,12 +6,12 @@ try {
   $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e){
   echo "Some issue!!!!";
-  echo $e->getMessage();
+  // echo $e->getMessage();
   exit;
 }
 
 try {
-  $results = $db->query("SELECT Title, Category FROM Media");
+  $results = $db->query("SELECT Title, Category, img FROM Media");
   // echo "Result is ok!";
 } catch(Exception $e) {
   echo "Query is not taked!";
@@ -21,5 +21,5 @@ try {
 
 
 //var_dump($results->fetchAll(PDO::FETCH_ASSOC));
-var_dump($results);
+var_dump($results->fetchAll(PDO::FETCH_ASSOC));
 ?>
