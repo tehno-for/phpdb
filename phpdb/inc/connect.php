@@ -17,5 +17,5 @@ try {
   exit;
 }
 
-$results->fetchAll(PDO::FETCH_ASSOC);
+$catalog = $results->fetchAll(PDO::FETCH_ASSOC);
 ?>
