@@ -7,7 +7,6 @@ function createPhoneNumber($numbersArray) {
   foreach($numbersArray as $k=>$v){
     switch($k){
       case 0:   $word = "(".$v;     break;
-      case 1:   $word .= $v;        break;
       case 2:   $word .= $v.") ";   break;
       case 5:   $word .= $v."-";    break;
       default:  $word .= $v;        break;

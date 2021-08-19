@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `database` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `database`;
+CREATE DATABASE IF NOT EXISTS `database1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `database1`;
 
 DROP TABLE IF EXISTS `People`;
 CREATE TABLE `People` (
