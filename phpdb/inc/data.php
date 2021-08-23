@@ -1,7 +1,7 @@
 <?php
 include('connect.php');
-/*
 
+/*
 $catalog = [];
 //Books
 $catalog[101] = [
