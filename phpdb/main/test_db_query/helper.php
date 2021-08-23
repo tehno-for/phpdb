@@ -1,5 +1,4 @@
 <?php
-
 //echo "Hello world!!!<br>";
 try {
   $db = new PDO("mysql:host=localhost;dbname=database;port=3306","admin","Tehno@q123Db");
@@ -9,13 +8,7 @@ try {
   exit;
 }
 
-try {
-  $results = $db->query("SELECT title, category, img FROM Media");
-  // echo "Result is ok!";
-} catch(Exception $e) {
-  echo "Query is not taked!";
-  exit;
+function send_offer($member_id, $email, $fullname, $level){
+    echo $member_id.$email.$fullname.$level.'<br>';
 }
-$catalog = $results->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
