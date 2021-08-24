@@ -1,4 +1,17 @@
 <?php
+function get_full_catalog(){
+    include("connect.php");
+    try {
+        $results = $db->query("SELECT title, category, img FROM Media");
+        // echo "Result is ok!";
+      } catch(Exception $e) {
+        echo "Query is not taked!";
+        exit;
+      }      
+      $catalog = $results->fetchAll(PDO::FETCH_ASSOC);
+      return $catalog;
+}
+
 function get_item_html($id,$item) {
     $output = "<li><a href='details.php?id="
         . $id . "'><img src='" 

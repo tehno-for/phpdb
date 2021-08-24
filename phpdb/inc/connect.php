@@ -9,14 +9,6 @@ try {
   exit;
 }
 
-try {
-  $results = $db->query("SELECT title, category, img FROM Media");
-  // echo "Result is ok!";
-} catch(Exception $e) {
-  echo "Query is not taked!";
-  exit;
-}
 
-$catalog = $results->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
