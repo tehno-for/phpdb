@@ -1,11 +1,11 @@
 <?php 
 include("inc/functions.php");
-//$catalog = get_full_catalog();
+$catalog = get_full_catalog();
 
 if (isset($_GET["id"])) {
     $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
     $item = single_catalog_array($id);
-    var_dump($item);
+    //var_dump($item);
 }
 
 if (empty($item)) {

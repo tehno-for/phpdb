@@ -9,7 +9,6 @@ try {
   exit;
 }
 
-<<<<<<< HEAD
 try {
   $results = $db->query("SELECT title, category, img FROM Media");
   // echo "Result is ok!";
@@ -18,8 +17,8 @@ try {
   exit;
 }
 $catalog = $results->fetchAll(PDO::FETCH_ASSOC);
-=======
 
->>>>>>> 0d220daa40d9e2f64d523a05f18febbbdc03c6f1
+
+
 
 ?>

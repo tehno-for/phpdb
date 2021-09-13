@@ -1,5 +1,6 @@
 <?php 
 include("inc/functions.php");
+
 $catalog = get_full_catalog();
 
 $pageTitle = "Personal Media Library";
@@ -25,4 +26,6 @@ include("inc/header.php"); ?>
 
 		</div>
 
-<?php include("inc/footer.php"); ?>
+<?php 
+
+include("inc/footer.php"); ?>

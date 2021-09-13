@@ -29,8 +29,23 @@ function single_catalog_array($id){
         echo "Query is not taked!";
         exit;
       }      
-      $catalog = $results->fetch();
-      return $catalog;
+      $item = $results->fetch();
+      if(empty($item)) return $item;
+      try {
+        $results = $db->prepare(
+            "SELECT fullname, role  
+            FROM Media_People
+            JOIN Genres ON Media_People.people_id = People.people_id
+            WHERE Media_People.people_id = $id"
+        );
+        $results->bindParam(1, $id, PDO::PARAM_INT);
+        $results->execute();
+
+      } catch(Exception $e) {
+        echo "Query is not taked!";
+        exit;
+      }      
+      return $item;
 }
 
 
