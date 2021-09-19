@@ -20,7 +20,7 @@ function single_catalog_array($id){
             FROM Media
             JOIN Genres ON Media.genre_id = Genres.genre_id
             LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
-            WHERE Media.media_id = $id"
+            WHERE Media.media_id = ?"
         );
         $results->bindParam(1, $id, PDO::PARAM_INT);
         $results->execute();
@@ -29,14 +29,22 @@ function single_catalog_array($id){
         echo "Query is not taked!";
         exit;
       }      
+
+     
+
       $item = $results->fetch();
       if(empty($item)) return $item;
       try {
         $results = $db->prepare(
             "SELECT fullname, role  
             FROM Media_People
+
             JOIN Genres ON Media_People.people_id = People.people_id
             WHERE Media_People.people_id = $id"
+
+            JOIN People ON Media_People.people_id = Genres.genre_id
+            LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
+            WHERE Media_People.people_id = ?"
         );
         $results->bindParam(1, $id, PDO::PARAM_INT);
         $results->execute();
@@ -45,6 +53,11 @@ function single_catalog_array($id){
         echo "Query is not taked!";
         exit;
       }      
+
+      }   
+      while($row = $results->fetch(PDO::FETCH_ASSOC)){
+        $item[$row["role"]][] = $item["fullname"];
+      }
       return $item;
 }
 
