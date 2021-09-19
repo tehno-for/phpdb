@@ -38,12 +38,7 @@ function single_catalog_array($id){
         $results = $db->prepare(
             "SELECT fullname, role  
             FROM Media_People
-
             JOIN Genres ON Media_People.people_id = People.people_id
-            WHERE Media_People.people_id = $id"
-
-            JOIN People ON Media_People.people_id = Genres.genre_id
-            LEFT OUTER JOIN Books ON Media.media_id = Books.media_id
             WHERE Media_People.people_id = ?"
         );
         $results->bindParam(1, $id, PDO::PARAM_INT);
