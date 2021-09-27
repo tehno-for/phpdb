@@ -28,17 +28,15 @@ function single_catalog_array($id){
       } catch(Exception $e) {
         echo "Query is not taked!";
         exit;
-      }      
-
+      }   
      
-
       $item = $results->fetch();
       if(empty($item)) return $item;
       try {
         $results = $db->prepare(
             "SELECT fullname, role  
             FROM Media_People
-            JOIN Genres ON Media_People.people_id = People.people_id
+            JOIN People ON Media_People.people_id = People.people_id
             WHERE Media_People.people_id = ?"
         );
         $results->bindParam(1, $id, PDO::PARAM_INT);
@@ -49,13 +47,12 @@ function single_catalog_array($id){
         exit;
       }      
 
-      }   
+         
       while($row = $results->fetch(PDO::FETCH_ASSOC)){
-        $item[$row["role"]][] = $item["fullname"];
+        $item[$row["role"]][] = $row["fullname"];
       }
       return $item;
 }
-
 
 function get_item_html($id,$item) {
     $output = "<li><a href='details.php?id="
