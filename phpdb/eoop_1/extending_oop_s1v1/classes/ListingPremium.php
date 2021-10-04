@@ -3,6 +3,7 @@
 class ListingPremium extends ListingBasic
 {
     private $description;
+    protected $allowed_tags = "<br><p><b><strong><m><u><ol><ul><li>";
 
     /**
      * Gets the local property $description
@@ -19,6 +20,6 @@ class ListingPremium extends ListingBasic
      */
     public function setDescription($value)
     {
-        $this->description = trim(filter_var($value, FILTER_SANITIZE_STRING));
+        $this->description = trim(strip_tags($value, $this->allowed_tags));
     }
 }

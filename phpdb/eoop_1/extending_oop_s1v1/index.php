@@ -12,7 +12,8 @@ if (isset($_GET['status'])) {
 $directory->selectListings($filter);
 
 $test = new ListingPremium();
-$test->setDescription('My description!!!');
+$test->setDescription(
+    'My description <p>This is showing!</p><a href="www.saf-pencere.az">This is not</a>');
 var_dump($test)."<br><br>";
 var_dump(get_class($test));
 var_dump(is_a($test, 'ListingBasic'));
